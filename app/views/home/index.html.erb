@@ -3,14 +3,14 @@
 <div class="row">
   <%= form_for(@post) do |f| %>
     <div class="input-field col s12">
-      <%= f.text_area :content, placeholder: "Submit a blog post...", id: "post", type: "text" %>
+      <%= f.text_area :content, placeholder: "Submit a blog post...", id: "post", type: "text", class: "materialize-textarea" %>
     </div>
-     <%= f.submit "Post", id: "submit", class: "btn waves-effect waves-light" %>
+     <%= f.submit "Post", id: "submit", class: "btn waves-effect waves-light right", style: "margin-right: 10px;" %>
   <% end %>
 </div>
 
 <div class="row">
-  <div class="col offset-s3 s6">
+  <div class="col s12">
     <ul class="collection">
       <%= render @posts %>
     </ul>
