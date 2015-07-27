@@ -9,7 +9,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    if user_signed_in?
+      @post = current_user.posts.build(post_params)
+    else
+      anon_user = User.find(1)
+      @post  = anon_user.posts.build(post_params)
+    end
 
     if @post.save
       redirect_to @post
